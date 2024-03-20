@@ -5,45 +5,79 @@
 let cats = ["Milo", "Otis", "Garfield"];
 
 // Function to append a cat to the end of the cats array
-function destructivelyAppendCat(name) {
-    cats.push(name);
+function destructivelyAppendCat() {
+  cats.push("Ralph");
 }
-  
-destructivelyAppendCat("Ralph");
+destructivelyAppendCat();
+console.log(cats); //log the cat array to display the updated list of cats
 
 //Function to prepend a cat to the beginning of the cats array
-function destructivelyPrependCat(name) {
-    cats.unshift(name);
+function destructivelyPrependCat() {
+  cats.unshift("Bob");
+}
+destructivelyPrependCat();
+console.log(cats);
+
+ // Function to remove the last cat 
+function destructivelyRemoveLastCat() {
+  cats.pop();
+}
+destructivelyRemoveLastCat();
+console.log(cats);
+
+// Function to remove first cat from the cats array
+
+function destructivelyRemoveFirstCat() {
+  cats.shift();
+
+}
+destructivelyRemoveFirstCat();
+console.log(cats);
+
+
+// Function to append a cat to the cats array and returns a new array
+
+
+
+function appendCat(catName) {
+  return cats.concat(catName);
 }
 
-destructivelyPrependCat("Bob");
+let updated_Cats = appendCat("Broom");
 
-// Function to remove the last cat from the cats array
-function destructivelyRemoveLastCat() {
-    cats.pop();
-  }
+console.log(updated_Cats);
+console.log(cats);
 
- // Function to remove the first cat from the cats array
-function destructivelyRemoveFirstCat() {
-    cats.shift();
-  } 
+ 
+// Function to prepend a cat to the cats array and returns a new array leaving the cats array unchanged
+function prependCat(catName) {
+  return [catName, ...cats]; 
+//prependCat function takes a catName parameter and uses the spread syntax (...) to prepend the catName at the beginning of the cats array
   
- // Function to append a cat to the cats array and returns a new array
-function appendCat(name) {
-    return cats.concat(["Broom"]);
-  }
+}
+let newCats = prependCat("Arnold");//The prependCat function returns a new array with the added cat name at the beginning.
+console.log(newCats);
 
-// Function to prepend a cat to the cats array and returns a new array
-function prependCat(name) {
-    return ["Arnold"].concat(cats);
-  } 
+//Function to remove the last cat in the cats array and returns a new array leaving the cats array unchanged
 
-// Function to remove the last cat in the cats array and returns a new array
-function removeLastCat() {
-    return cats.slice(0, -1);
-  }
+ function removeLastCat() {
+  return cats.slice(0, -1);
+}
 
- // Function to remove the first cat from the cats array and returns a new array
-function removeFirstCat() {
+  let updatedCat = removeLastCat();
+    
+  console.log(updatedCat);
+  console.log(cats);
+
+  //Function to remove the first cat from the cats array and returns a new array leaving the cats array unchanged
+
+  function removeFirstCat() {
     return cats.slice(1);
-  } 
+  }
+  
+  let updatedCats = removeFirstCat();
+    
+  console.log(updatedCats);
+  console.log(cats);
+
+
